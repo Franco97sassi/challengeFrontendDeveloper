@@ -2,7 +2,7 @@
 
 async function Home(){
    return(
-    <div>
+    <div className=" h-screen flex justify-center items-center">
        <h3>Bienvenido</h3>
      </div>
   )

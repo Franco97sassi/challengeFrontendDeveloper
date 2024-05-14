@@ -2,6 +2,8 @@ import Image from 'next/image';
 import React from 'react'
 //  import starWars from './starWars.jpeg';
 import Link from 'next/link';
+import PersonajesGeneral from '@/src/components/Personajes';
+import "./personajes.css"
 async function getData(){
   const res=await fetch("https://swapi.dev/api/people");
   const data=await res.json();
@@ -11,27 +13,30 @@ async function Personajes() {
   const personajes= await  getData()
 
   return (
-    <div>  
+    <div className='grid grid-cols-3 '>  
       
-    <ul>
+    {/* <ul> */}
     {personajes.map((personaje)=> (  
-      <div >     
+//       <div >     
        
-        <Link href={`/personajes/${personaje.id}`} key={personaje.id}>  
-        <li key={personaje.id}> 
-         {/* <Image src={starWars}/> */}
-        <hr />
-    <h3>Nombre:{personaje.name}</h3>
-    <h3>Color de Ojos:{personaje.eye_color}</h3>
-    <h3>Genero:{personaje.gender}</h3>
+//         <Link href={`/personajes/${personaje.id}`} key={personaje.id}>  
+//         <li key={personaje.id}> 
+//          {/* <Image src={starWars}/> */}
+//         <hr />
+//     <h3>Nombre:{personaje.name}</h3>
+//     <h3>Color de Ojos:{personaje.eye_color}</h3>
+//     <h3>Genero:{personaje.gender}</h3>
 
- <hr />
-    <h3>{personaje.episode_id}</h3>
-    </li>
-    </Link></div> 
+//  <hr />
+//     <h3>{personaje.episode_id}</h3>
+//     </li>
+//     </Link>
+//     </div> 
+
+    <PersonajesGeneral personaje={personaje}/>
 ) )}
      
-  </ul>
+  {/* </ul> */}
   </div>
   )
 }

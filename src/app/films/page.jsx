@@ -2,8 +2,7 @@ import Image from 'next/image';
 import React from 'react'
  import Link from 'next/link';
 import FilmsGeneral from '@/src/components/Films';
-import starWars from "./starWars.jpeg"
-async function getData(){
+ async function getData(){
   const res=await fetch("https://swapi.dev/api/films");
   const data=await res.json();
   console.log(data);
@@ -13,8 +12,8 @@ async function getData(){
 async function Films() {
   const films= await  getData()
      return (
-     <ul>
-    {films.map((film)=> (  
+      <div  className=' grid grid-cols-3  '>  
+     {films.map((film)=> (  
 //            <Link href={`/films/${film.episode_id}`} key={film.episode_id}>  
 //          <li key={film.id}> 
 //          <hr />
@@ -29,7 +28,7 @@ async function Films() {
 <FilmsGeneral film={film}/> 
 ) )}
      
-  </ul>
+    </div>
 
   )
 }
