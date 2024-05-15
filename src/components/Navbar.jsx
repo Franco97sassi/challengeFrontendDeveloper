@@ -10,7 +10,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-stone-950 flex justify-between p-4 items-center">
+    <nav className="bg-stone-950 flex justify-between p-4 items-center relative">
       <Link href="/">
         <h1 className="text-3xl font-bold">Star Wars</h1>
       </Link>
@@ -39,8 +39,22 @@ function Navbar() {
           </svg>
         </button>
       </div>
-      <div className={`${isOpen ? "block" : "hidden"} lg:flex lg:flex-row lg:items-center`}>
-        <ul className="flex gap-4">          <li>
+      <div className={`hidden lg:flex lg:flex-row lg:items-center`}>
+        <ul className="flex gap-4">
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/films">Films</Link>
+          </li>
+          <li>
+            <Link href="/personajes">Personajes</Link>
+          </li>
+        </ul>
+      </div>
+      <div className={`lg:hidden   inset-x-0 top-20 bg-stone-950 z-10 ${isOpen ? "block" : "hidden"}`}>
+        <ul className="flex flex-col items-center gap-4">
+          <li>
             <Link href="/">Home</Link>
           </li>
           <li>

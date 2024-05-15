@@ -22,7 +22,7 @@ const FilmsComponent=dynamic(()=>import("@/src/components/Films"),{
 async function Films() {
   const films = await fetchFilmsData();
   return (
-    <div className="min-h-screen grid md:grid-cols-3  grid-cols-1 gap-10 m-8">
+    <div className="min-h-screen grid md:grid-cols-3  grid-cols-1 gap-10 m-8  ">
       {films.map((film, index) => (
         <FilmsComponent film={film} key={index + 1} id={index + 1} />
       ))}

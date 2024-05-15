@@ -72,8 +72,7 @@ function Characters() {
   return (
     <div  >
        
-       {/* <div className="flex flex-col gap-10 p-10  center w-1/2"> */}
-       <div className="flex flex-col  md:items-start   gap-10 p-10 justify-center items-center ">
+        <div className="flex flex-col  md:items-start   gap-10 p-10 justify-center items-center ">
         <input
           type="text"
           placeholder="Search by eye_color..."
@@ -92,7 +91,7 @@ function Characters() {
       </div>
        
       <div className="grid md:grid-cols-3  grid-cols-1  gap-10 m-8">
-        {characters.length > 0 ? (
+        { 
           filteredCharacters.map((character, index) => (
             <CharacterComponent
               key={index}
@@ -100,9 +99,7 @@ function Characters() {
               id={index + 1 + (currentPage - 1) * 10}
             />
           ))
-        ) : (
-          <div>Loading...</div>
-        )}
+          }
       </div>
       <div className="pagination flex  justify-center gap-10 p-10">
         <button onClick={prevPage} disabled={currentPage === 1}>
