@@ -5,35 +5,29 @@ import Link from 'next/link';
 import PersonajesGeneral from '@/src/components/Personajes';
 import "./personajes.css"
 async function getData(){
-  const res=await fetch("https://swapi.dev/api/people");
-  const data=await res.json();
-   return data.results;
+  let allResults=[];
+  let nextUrl = "https://swapi.dev/api/people";
+
+  while (nextUrl) {
+    const res = await fetch(nextUrl);
+    const data = await res.json();
+    allResults = [...allResults, ...data.results];
+    nextUrl = data.next;
   }
+
+  return allResults;
+}
 async function Personajes() {
   const personajes= await  getData()
 
   return (
-    <div className='grid grid-cols-3 '>  
+    <div className='grid grid-cols-3 gap-10'>  
       
     {/* <ul> */}
     {personajes.map((personaje)=> (  
-//       <div >     
-       
-//         <Link href={`/personajes/${personaje.id}`} key={personaje.id}>  
-//         <li key={personaje.id}> 
-//          {/* <Image src={starWars}/> */}
-//         <hr />
-//     <h3>Nombre:{personaje.name}</h3>
-//     <h3>Color de Ojos:{personaje.eye_color}</h3>
-//     <h3>Genero:{personaje.gender}</h3>
+ 
 
-//  <hr />
-//     <h3>{personaje.episode_id}</h3>
-//     </li>
-//     </Link>
-//     </div> 
-
-    <PersonajesGeneral personaje={personaje}/>
+    <PersonajesGeneral personaje={personaje} />
 ) )}
      
   {/* </ul> */}

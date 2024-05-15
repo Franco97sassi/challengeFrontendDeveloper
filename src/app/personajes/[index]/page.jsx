@@ -1,7 +1,6 @@
+ import React from 'react'
+import starWars from '@/public/img/starWars.jpeg';
 import Image from 'next/image';
-import React from 'react'
-//  import starWars from './starWars.jpeg';
-// import Link from 'next/link';
 async function getPersonFilm(id){
   const res=await fetch(`https://swapi.dev/api/people/${id}`);
   const data=await res.json();
@@ -18,6 +17,7 @@ async function PersonDetail({params}) {
           {/* <h3>{film.title}</h3> */}
           <h3>{personaje.id}</h3>
           <h3>Nombre:{personaje.name}</h3>
+          <Image width={500} height={500} src={starWars} alt="" />
 
           <h3>Color de Ojos:{personaje.eye_color}</h3>
           <h3>Año de Cumpleaños:{personaje.birth_year }</h3>

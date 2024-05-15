@@ -5,28 +5,16 @@ import FilmsGeneral from '@/src/components/Films';
  async function getData(){
   const res=await fetch("https://swapi.dev/api/films");
   const data=await res.json();
-  console.log(data);
-     return data.results;
+      return data.results;
  
   }
 async function Films() {
   const films= await  getData()
      return (
       <div  className=' grid grid-cols-3  '>  
-     {films.map((film)=> (  
-//            <Link href={`/films/${film.episode_id}`} key={film.episode_id}>  
-//          <li key={film.id}> 
-//          <hr />
-//     <h3>Nombre:{film.title}</h3>
+     {films.map((film )=> (  
  
-//     <h3>id:{film.id}</h3>
-//     <h3>Numero de Episodio:{film.episode_id}</h3>
-    
-//  <hr />
-//     </li> 
-//     </Link> 
-<FilmsGeneral film={film}/> 
-) )}
+<FilmsGeneral  film={film}  />) )}
      
     </div>
 

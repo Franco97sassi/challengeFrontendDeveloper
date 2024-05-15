@@ -43,28 +43,26 @@
 
 
 
+ import React from 'react'
+import starWars from '@/public/img/starWars.jpeg';
 import Image from 'next/image';
-import React from 'react'
-//  import starWars from './starWars.jpeg';
-// import Link from 'next/link';
-async function getDataFilm(id){
-  const res=await fetch(`https://swapi.dev/api/films/}`);
+async function getDataFilm(episode_id){
+  const res=await fetch(`https://swapi.dev/api/films/${episode_id}`);
   const data=await res.json();
   console.log(data);
-  //  return  data;
+    return  data;
   }
-// async
- function FilmDetail({params}) {
-  // const film= await  getDataFilm()
-console.log(params);
+ async function FilmDetail({params}) {
+    const film= await  getDataFilm(params.episode_id)
   return (
     <div>
-      <h1>{params.id}</h1>
             <h1>hola 111</h1>
-            {/* <h1>Episodio:
-{params.episode_id}</h1>
-<h1>titulo:
-{params.title}</h1> */}
+            <h1>Episodio:</h1>
+            {film.title}
+ <Image width={500} height={500} src={starWars} alt="" />
+
+  {film.episode_id}   
+
     </div>
   )
 }
