@@ -1,76 +1,65 @@
- 
+import React from "react";
+import starWars from "@/public/img/starWars.png";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import Loading from "@/src/components/Loading";
 
+const CharactersByFilm = dynamic(() => import("@/src/components/CharactersByFilm"), {
+  loading: () => <Loading />,
+});
 
-
- import React from 'react'
-import starWars from '@/public/img/starWars.jpeg';
-import Image from 'next/image';
-async function getDataFilm(id){
-  const res=await fetch(`https://swapi.dev/api/films/${id}`);
-  const data=await res.json();
-  console.log(data);
-    return  data;
+async function fetchCharacterData(characterURL) {
+  try {
+    const res = await fetch(characterURL);
+    if (!res.ok) {
+      throw new Error("No se pudieron obtener los datos del personaje");
+    }
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error al obtener los datos del personaje:", error);
+    throw error;
   }
- async function FilmDetail({params}) {
-    const film= await  getDataFilm(params.id)
-  return (
-    <div className="flex justify-center	   items-center " >
-            <h1>hola 111</h1>
-            <h1>Episodio: 
-            {film.title}</h1>
- <Image width={500} height={500} src={starWars} alt="" />
-
- <h1> {film.episode_id}   </h1>
-
-    </div>
-  )
 }
 
-export default FilmDetail;  
+async function fetchFilmData(id) {
+  try {
+    const res = await fetch(`https://swapi.dev/api/films/${id}`);
+    if (!res.ok) {
+      throw new Error("No se pudieron obtener los datos de la película");
+    }
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error al obtener los datos de la película:", error);
+    throw error;
+  }
+}
 
+async function FilmDetail({ params }) {
+  // Obtener datos de la película
+  const film = await fetchFilmData(params.id);
 
+  // Obtener datos de personajes
+  const characters = await Promise.all(
+    film.characters.map((characterURL) => fetchCharacterData(characterURL))
+  );
 
+  return (
+    <div className="  bg-gray-950 flex flex-col justify-center items-center">
+      <h1>Titulo: {film.title}</h1>
+      <Image width={500} height={500} src={starWars} alt="" />
+      <h1>Episodio: {film.episode_id}</h1>
+      <h1>Director: {film.director}</h1>
+      <h1>Personajes:</h1>
+      <div className="flex md:flex-row flex-col flex-wrap">
+       {characters.map((character, index) => (
+        <div className="flex flex-row"> 
+        <CharactersByFilm key={index} character={character} id={index + 1} /></div>
+      ))} 
+       </div>
+     </div>
+  );
+}
 
-// function FilmDetail({params}){
-//   // function FilmDetail({props}){
-
-//   // console.log(props);
-//   return (
-//     <div>
-//     pp {params.episode_id}
-//     </div>
-//   )
-// }
-// export default FilmDetail;  
-
-
-
-//  import React from 'react'
-// import starWars from '@/public/img/starWars.jpeg';
-// import Image from 'next/image';
-// async function getDataFilm(){
-//   const res=await fetch(`https://swapi.dev/api/films/3}`);
-//   const data=await res.json();
-//   console.log(data);
-//     return  data;
-//   }
-//     function FilmDetail({props}) {
-//     // const film= await  getDataFilm(params.episode_id)
-//   //  await  getDataFilm()
-//    console.log(props);
-
-//   return (
-//     <div className="flex justify-center	   items-center " >
-//             <h1>hola 111</h1>
-//             <h1>Episodio:</h1>
-//             {/* {film.title} */}
-//  <Image width={500} height={500} src={starWars} alt="" />
-
-//   {/* {film.episode_id}    */}asd:
-//   {/* {params.episode_id}
-//   dsa:  {params.id} */}
-
-//     </div>
-//   )
-// }
-//  export default FilmDetail;  
+export default FilmDetail;

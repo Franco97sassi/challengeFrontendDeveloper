@@ -3,28 +3,29 @@ import React from 'react'
 import starWars from '@/public/img/starWars.jpeg';
 import Image from 'next/image';
 
-function PersonajesGeneral({personaje,id}) {
+function CharacterComponent({character,id}) {
+ 
  return (
    
-    <div  className='bg-gray-950 p-10'>     
+     
        
          <Link href={`/personajes/${id}`}   >   
-        {/* <li key={personaje.id}>  */}
-         {/* <Image src={starWars}/> */}
-        <hr />
-     <h3>Nombre:{personaje.name}</h3>  
-    <Image width={500} height={500} src={starWars} alt="" />
+       
+         <div  className='bg-gray-950 p-10 justify-center items-center'>     
+     <h2 className=' font-bold mb-4'>Nombre:{character.name}</h2>  
+      <Image width={500} height={500} src={starWars} alt="starWars" />  
 
-    {personaje.eye_color !== 'n/a' && personaje.eye_color !== 'unknown' && (
-        <h3 className='text-slate-300'>Color de Ojos: {personaje.eye_color}</h3>
-      )}    {personaje.gender !== 'n/a' && personaje.gender !== 'unknown' && (
-        <h3 className='text-slate-300'>Genero: {personaje.gender}</h3>
+    {character.eye_color !== 'n/a' && character.eye_color !== 'unknown' && (
+        <h3 className='text-slate-300'>Color de Ojos: {character.eye_color}</h3>
+      )}    
+      {character.gender !== 'n/a' && character.gender !== 'unknown' && (
+        <h3 className='text-slate-300'>Genero: {character.gender}</h3>
       )}
- <hr />
-    <h3>{personaje.episode_id}</h3>
-    {/* </li> */}
+  
+    <h3>{character.episode_id}</h3>
+    {/* </li> */}</div> 
      </Link> 
-    </div> 
+     
  )
 }
-export default PersonajesGeneral
+export default CharacterComponent
