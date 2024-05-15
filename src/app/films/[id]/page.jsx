@@ -54,8 +54,8 @@ async function FilmDetail({ params }) {
       <h1>Personajes:</h1>
       <div className="flex md:flex-row flex-col flex-wrap">
        {characters.map((character, index) => (
-        <div className="flex flex-row"> 
-        <CharactersByFilm key={index+1} character={character} id={index + 1} /></div>
+        <div className="flex flex-row" key={character.url}> 
+        <CharactersByFilm   character={character} id={index + 1} /></div>
       ))} 
        </div>
      </div>
