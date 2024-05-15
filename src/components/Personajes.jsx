@@ -8,7 +8,7 @@ function PersonajesGeneral({personaje,id}) {
    
     <div  className='bg-gray-950 p-10'>     
        
-         <Link href={`/personajes/${id}`} key={id} >   
+         <Link href={`/personajes/${id}`}   >   
         {/* <li key={personaje.id}>  */}
          {/* <Image src={starWars}/> */}
         <hr />

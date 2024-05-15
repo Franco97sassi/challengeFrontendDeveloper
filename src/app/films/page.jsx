@@ -14,7 +14,7 @@ async function Films() {
       <div  className=' grid grid-cols-3  '>  
      {films.map((film,index )=> (  
  
-<FilmsGeneral  film={film} key={film.episode_id} id={index+1} />) )}
+<FilmsGeneral  film={film} key={index+1} id={index+1} />) )}
      
     </div>
 
