@@ -12,9 +12,9 @@ async function Films() {
   const films= await  getData()
      return (
       <div  className=' grid grid-cols-3  '>  
-     {films.map((film )=> (  
+     {films.map((film,index )=> (  
  
-<FilmsGeneral  film={film}  />) )}
+<FilmsGeneral  film={film} key={film.episode_id} id={index+1} />) )}
      
     </div>
 

@@ -3,12 +3,12 @@ import React from 'react'
 import starWars from '@/public/img/starWars.jpeg';
 import Image from 'next/image';
 
-function PersonajesGeneral({personaje}) {
+function PersonajesGeneral({personaje,id}) {
  return (
    
     <div  className='bg-gray-950 p-10'>     
        
-        {/* <Link href={`/personajes/${personaje.id}`} key={personaje.id}>   */}
+         <Link href={`/personajes/${id}`} >   
         {/* <li key={personaje.id}>  */}
          {/* <Image src={starWars}/> */}
         <hr />
@@ -23,7 +23,7 @@ function PersonajesGeneral({personaje}) {
  <hr />
     <h3>{personaje.episode_id}</h3>
     {/* </li> */}
-    {/* </Link> */}
+     </Link> 
     </div> 
  )
 }

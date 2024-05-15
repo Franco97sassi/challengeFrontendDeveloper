@@ -2,11 +2,11 @@ import Link from 'next/link'
 import React from 'react'
  import Image from 'next/image';
 import starWars from '@/public/img/starWars.jpeg';
-
-function FilmsGeneral({film ,episode_id,url }) {
+ 
+function FilmsGeneral({film ,id }) {
  return (
    
-<Link href={`/films/${episode_id}`} >
+<Link href={`/films/${id}`} >
      
      <div  className='bg-gray-950 p-10'>
        <hr />
