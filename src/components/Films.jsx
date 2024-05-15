@@ -6,7 +6,7 @@ import starWars from '@/public/img/starWars.jpeg';
 function FilmsGeneral({film ,id }) {
  return (
    
-<Link href={`/films/${id}`} >
+<Link href={`/films/${id}`} key={id} >
      
      <div  className='bg-gray-950 p-10'>
        <hr />
