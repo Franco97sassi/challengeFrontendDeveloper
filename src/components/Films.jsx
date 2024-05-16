@@ -9,8 +9,8 @@ function FilmsComponent({film ,id }) {
    
 <Link href={`/films/${id}`}   >
      
-     <div  className='bg-gray-950 p-10    flex flex-col items-center justify-center   '>
-          <h2 className=' font-bold mb-4'>Nombre: {film.title}</h2>
+     <div  className='bg-gray-950 p-10    flex flex-col items-center justify-center    '>
+          <h2 className=' font-bold mb-4 '>Nombre: {film.title}</h2>
           <div className="rounded-lg overflow-hidden">
           <Image width={500} height={500} src={starWars} alt="starWars" />
         </div>

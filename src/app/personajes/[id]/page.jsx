@@ -24,7 +24,7 @@ async function CharacterDetail({params}) {
       {character ? (  
         <>
           {/* <h3>{film.title}</h3> */}
-          <div className=" h-screen bg-gray-950 flex flex-col justify-center	   items-center " >
+          <div className=" h-screen bg-gray-950 flex flex-col justify-center	   items-center gap-2" >
 
           <h3>{character.id}</h3>
           <h3>Nombre:{character.name}</h3>

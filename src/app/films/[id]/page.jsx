@@ -46,8 +46,8 @@ async function FilmDetail({ params }) {
   );
 
   return (
-    <div className=" min-h-screen bg-gray-950 flex flex-col justify-center items-center">
-      <h1>Titulo: {film.title}</h1>
+    <div className=" min-h-screen bg-gray-950 flex flex-col justify-center items-center    gap-2">
+      <h1 className="pt-10">Titulo: {film.title}</h1>
       <Image width={500} height={500} src={starWars} alt="" />
       <h1>Episodio: {film.episode_id}</h1>
       <h1>Director: {film.director}</h1>
