@@ -18,7 +18,7 @@ function CharacterComponent({character,id}) {
     {character.eye_color !== 'n/a' && character.eye_color !== 'unknown' && (
         <h3 className='text-slate-300'>Color de Ojos: {character.eye_color}</h3>
       )}    
-      {character.gender !== 'n/a' && character.gender !== 'unknown'  && (
+      {character.gender !== 'n/a' && character.gender !== 'unknown' && (
         <h3 className='text-slate-300'>Genero: {character.gender}</h3>
       )}
   

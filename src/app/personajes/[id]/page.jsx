@@ -45,7 +45,7 @@ async function CharacterDetail({params}) {
         <h3 className='text-slate-300'>Color de Piel: {character.skin_color}</h3>
       )}    
       {character.mass !== 'n/a' && character.mass !== 'unknown' && (
-        <h3 className='text-slate-300'>Masa: {character.mass}</h3>
+        <h3  className='text-slate-300 font-bold '>Masa: {character.mass}</h3>
       )}     
             
           </div>
