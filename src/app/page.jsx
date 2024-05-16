@@ -1,5 +1,4 @@
-import starWars from '@/public/img/starWarsBg.jpeg';
-
+ 
 
 
 async function Home(){
