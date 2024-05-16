@@ -15,7 +15,7 @@ function CharactersByFilm({character,id}) {
      <h2 className=' font-bold mb-4'>Nombre:{character.name}</h2>  
      <Image width={100} height={100} src={starWars} alt="starWars" />  
  
-     <h2 className=' font-bold mb-4'>Url:{character.url}</h2>  
+     {/* <h2 className=' font-bold mb-4'>Url:{character.url}</h2>   */}
 
     <h3>{character.episode_id}</h3>
     {/* </li> */}</div> 
