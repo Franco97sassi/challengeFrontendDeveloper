@@ -27,7 +27,7 @@ async function Films() {
     <div className=" bg-gradient-to-b from-stone-950 via-gray-700 to-stone-950  min-h-screen flex items-center justify-center">
       <div className="  grid md:grid-cols-3 grid-cols-1 gap-10 m-10  mx-auto  ">
       {films.map((film, index) => (
-        <div className="bg-slate-600  rounded-xl m-10  lg:m-0">
+        <div className="bg-slate-600  rounded-xl m-10  lg:m-0" key={index + 1}>
         <FilmsComponent film={film} key={index + 1} id={index + 1} filmProps={filmProps} /></div>
       ))}
     </div>

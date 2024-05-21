@@ -93,7 +93,7 @@ function Characters() {
       <div className="grid md:grid-cols-3  grid-cols-1  gap-10 m-8">
         { 
           filteredCharacters.map((character, index) => (
-            <div key={index} className="  bg-slate-600 rounded-3xl "  > 
+            <div key={index + 1 + (currentPage - 1) * 10} className="  bg-slate-600 rounded-3xl "  > 
             <CharacterComponent
               key={index}
               character={character}
