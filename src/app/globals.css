@@ -1,4 +1,20 @@
 @tailwind base;
+@layer base {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+     
+  p {
+    @apply text-lg;
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
 
@@ -8,3 +24,4 @@
     color: white;
     font-family: "Roboto";
   }
+  

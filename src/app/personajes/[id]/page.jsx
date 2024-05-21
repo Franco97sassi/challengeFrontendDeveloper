@@ -1,7 +1,14 @@
  import React from 'react'
 import starWars from '@/public/img/starWars.jpeg';
 import Image from 'next/image';
- 
+import Loading from '@/src/components/Loading';
+import dynamic from 'next/dynamic';
+  
+
+const CharacterComponent=dynamic(()=>import("@/src/components/Characters"),{
+  loading:()=><Loading/>,
+  })
+  
   async function fetchCharacterData(id) {   
     try {
       const res = await fetch(`https://swapi.dev/api/people/${id}`);
@@ -16,43 +23,23 @@ import Image from 'next/image';
     }
   }
 async function CharacterDetail({params}) {
+  const characterProps={width:500,showName:true,showEyeColor:true,showGender:true,showBirthday:true,showHeight:true,showSkinColor:true,showMass:true }
+
   const character= await  fetchCharacterData(params.id)
 
   return (
     <div>
-      
-      {character ? (  
-        <>
-          {/* <h3>{film.title}</h3> */}
-          <div className=" h-screen bg-gray-950 flex flex-col justify-center	   items-center gap-2" >
-
-          <h3>{character.id}</h3>
-          <h3>Nombre:{character.name}</h3>
-          <Image width={500} height={500} src={starWars} alt="" />
-          {character.eye_color !== 'n/a' && character.eye_color !== 'unknown' && (
-        <h3 className='text-slate-300'>Color de Ojos: {character.eye_color}</h3>
-      )}    
-          {character.birth_year !== 'n/a' && character.birth_year !== 'unknown' && (
-        <h3 className='text-slate-300'>Año de Cumpleaños: {character.birth_year}</h3>
-      )}    
-      {character.hair_color !== 'n/a' && character.hair_color !== 'unknown' && (
-        <h3 className='text-slate-300'>Color de Ojos: {character.hair_color}</h3>
-      )}    
-      {character.height !== 'n/a' && character.height !== 'unknown' && (
-        <h3 className='text-slate-300'>Altura: {character.height}</h3>
-      )}    
-      {character.skin_color !== 'n/a' && character.skin_color !== 'unknown' && (
-        <h3 className='text-slate-300'>Color de Piel: {character.skin_color}</h3>
-      )}    
-      {character.mass !== 'n/a' && character.mass !== 'unknown' && (
-        <h3  className='text-slate-300 font-bold '>Masa: {character.mass}</h3>
-      )}     
-            
-          </div>
-         </>
-      ) : (
-        <p>Loading...</p>  
-      )}
+      <>
+      <div className=" h-screen bg-gradient-to-b from-gray-700 to-slate-950 flex flex-col justify-center	   items-center gap-2" >
+<div  >  
+      <CharacterComponent
+               character={character}
+              // id={index + 1 + (currentPage - 1) * 10}
+              characterProps={characterProps}
+            /></div>
+</div>
+      </>
+       
       
     </div>
   )

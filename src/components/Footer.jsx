@@ -6,8 +6,8 @@ function Footer() {
 
   return (     
     < div className="bg-stone-950  h-24 flex flex-col justify-center items-center">
-       <h1>Todos los Derechos Reservados </h1>
-       <h1> @2024-Franco sassi</h1>
+       <h2>Todos los Derechos Reservados </h2>
+       <h2> @2024-Franco sassi</h2>
 
     </div>
   );

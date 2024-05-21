@@ -6,7 +6,7 @@ function Loading() {
 
   return (
     < div className="bg-stone-950  h-24 flex justify-center items-center">
-       <h1>LOADING...</h1>
+       <h2>LOADING...</h2>
     </div>
   );
 }
