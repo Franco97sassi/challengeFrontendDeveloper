@@ -28,20 +28,22 @@ async function CharacterDetail({params}) {
   const character= await  fetchCharacterData(params.id)
 
   return (
-    <div>
+    
       <>
       <div className=" h-screen bg-gradient-to-b from-gray-700 to-slate-950 flex flex-col justify-center	   items-center gap-2" >
 <div  >  
       <CharacterComponent
                character={character}
               // id={index + 1 + (currentPage - 1) * 10}
+              key={character}
               characterProps={characterProps}
-            /></div>
+            />
+            </div>
 </div>
       </>
        
       
-    </div>
+   
   )
 }
 
