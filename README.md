@@ -1,5 +1,9 @@
 # Star Wars API
+ <a href="https://challenge-frontend-developer-gold.vercel.app/">
+ <img src="https://i.imgur.com/6M59qnx.png" alt="Fondo" width="100%" />
+</a>
 
+## Descriptiom
 Working with the StarWars API to display its characters and respective movies from the saga. I demonstrated my skills in Next.js and Tailwind CSS.
 
 ## Installation
